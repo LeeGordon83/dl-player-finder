@@ -1,0 +1,17 @@
+{
+  "name": "player-position-checker",
+  "version": "1.0.0",
+  "description": "an app which accepts a list of players and searches for their position in dream league players list",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "author": "GeordieFoo",
+  "license": "ISC",
+  "keywords": [],
+  "dependencies": {
+    "csv-parser": "^3.0.0",
+    "csv-writer": "^1.6.0",
+    "xlsx": "^0.18.5"
+  }
+}
