@@ -1,0 +1,30 @@
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"    # Map port 3000 on the host to port 3000 in the container
+    env_file:
+      - .env  # Load from the .env file
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/dlplayerfinder    # MongoDB URL (from the Mongo service below)
+      - JWT_SECRET=secret                                 # JWT secret for authentication
+      - API_HOST=${API_HOST}                              # API host
+
+    depends_on:
+      - mongo          # Ensure MongoDB service is started before the app
+    networks:
+      - app-network     # Define a custom network
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"   # Map MongoDB port
+    volumes:
+      - ./data:/data/db  # Persist MongoDB data on the host machine
+    networks:
+      - app-network      # Use the same network as the app
+
+networks:
+  app-network:
+    driver: bridge        # Network to allow communication between containers

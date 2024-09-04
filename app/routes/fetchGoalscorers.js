@@ -19,7 +19,6 @@ module.exports = [{
       try {
         const competition = Number(request.payload.league)
         const data = await buildGoalscorersList.buildGoalscorersList(competition, 1)
-console.log(data)
         return h.view('goalscorers', {
           pageTitle: 'Goalscorers',
           competition: data.competition,
