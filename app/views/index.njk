@@ -1,0 +1,18 @@
+{% extends '_layout.njk' %}
+
+{% block content %}
+<div class="jumbotron">
+  <h1>Dream League Player Finder</h1>
+  <p class="lead">My Personal Dream League Target Finder</p>
+</div>
+  <form action="/fetch-goalscorers" method="POST">
+    <input type="hidden" name="crumb" value="{{ crumb }}">
+      <label for="league">Choose a league:</label>
+    <select name="league" id="league">
+      <option value="2">Championship</option>
+      <option value="3">League One</option>
+      <option value="4">League Two</option>
+    </select>
+    <button type="submit">Run Target Finder</button>
+  </form>
+{% endblock %}

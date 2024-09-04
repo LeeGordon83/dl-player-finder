@@ -1,0 +1,35 @@
+{% extends '_layout.njk' %}
+
+{% block content %}
+  <h1>{{ competition }} - Top Goalscorers</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Goals</th>
+        <th>Position</th>
+        <th>Position Confidence</th>
+        <th>Club</th>
+        <th>Owned By</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for player in goalscorers %}
+      <tr>
+        <td>{{ player['first-name'] }}</td>
+        <td>{{ player['last-name'] }}</td>
+        <td>{{ player['team'] }}</td>
+        <td>{{ player['position'] }}</td>
+        <td>{{ player['positionConfidence'] }}</td>
+        <td>{{ player['goals'] }}</td>
+        <td>{{ player['manager'] }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <p><a href="/">Back to the search</a></p>
+
+{% endblock %}

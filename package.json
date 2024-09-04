@@ -1,17 +1,54 @@
 {
-  "name": "player-position-checker",
+  "name": "dream-league-target-finder",
   "version": "1.0.0",
-  "description": "an app which accepts a list of players and searches for their position in dream league players list",
-  "main": "index.js",
+  "description": "an app which creates a list of targets for a dream league team",
+  "main": "app/index.js",
   "scripts": {
-    "test": "npm run test"
+    "start": "node index.js",
+    "test": "npm run test",
+    "start:dev": "nodemon index.js"
   },
   "author": "GeordieFoo",
-  "license": "ISC",
+  "license": "MIT",
   "keywords": [],
   "dependencies": {
+    "@hapi/boom": "^10.0.1",
+    "@hapi/crumb": "^9.0.1",
+    "@hapi/h2o2": "^10.0.4",
+    "@hapi/hapi": "^21.3.10",
+    "@hapi/inert": "^7.1.0",
+    "@hapi/vision": "^7.0.3",
+    "@hapi/wreck": "^18.1.0",
+    "axios": "^1.7.2",
+    "bootstrap": "^5.3.3",
     "csv-parser": "^3.0.0",
     "csv-writer": "^1.6.0",
+    "dotenv": "^16.4.5",
+    "hapi-auth-jwt2": "^10.6.0",
+    "hapi-pino": "^12.1.0",
+    "joi": "^17.13.3",
+    "moment-timezone": "^0.5.45",
+    "nunjucks": "^3.2.4",
+    "qs": "^6.13.0",
     "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.4"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "beforeEach",
+      "expect",
+      "test",
+      "afterEach",
+      "jest",
+      "beforeAll",
+      "afterAll",
+      "$",
+      "XMLHttpRequest",
+      "dataLayer"
+    ]
   }
 }
