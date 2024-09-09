@@ -3,7 +3,7 @@ const fetchMatch = require('./fetchMatch')
 const TeamAssigner = async (scorersData) => {
   const playersWithTeams = [] // Array to store each player's details and team
 
-  const playersToProcess = scorersData.goalscorers.players.slice(0, 5) // Process only the first 5 players for testing
+  const playersToProcess = scorersData.goalscorers.players
 
   // Create an array of promises for fetching match data
   const fetchPromises = playersToProcess.map(player =>
