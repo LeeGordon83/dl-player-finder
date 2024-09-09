@@ -1,4 +1,5 @@
 const xlsx = require('xlsx')
+const { calculateDistance } = require('../levenshtein')
 
 // Function to search for a player in the sheet named 'ALL' and return the team, position, and confidence if found
 const findPlayerPosition = (firstName, surname, team, workbook) => {

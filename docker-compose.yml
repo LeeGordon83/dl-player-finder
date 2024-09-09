@@ -6,11 +6,6 @@ services:
       - "3000:3000"    # Map port 3000 on the host to port 3000 in the container
     env_file:
       - .env  # Load from the .env file
-    environment:
-      - MONGO_URL=mongodb://mongo:27017/dlplayerfinder    # MongoDB URL (from the Mongo service below)
-      - JWT_SECRET=secret                                 # JWT secret for authentication
-      - API_HOST=${API_HOST}                              # API host
-
     depends_on:
       - mongo          # Ensure MongoDB service is started before the app
     networks:

@@ -1,6 +1,7 @@
 const routes = [].concat(
   require('../routes/index'),
-  require('../routes/fetchGoalscorers')
+  require('../routes/fetchGoalscorers'),
+  require('../routes/public')
   // ('../routes/account/login'),
   // require('../routes/account/register'),
   // require('../routes/account/forgot-password'),

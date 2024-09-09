@@ -1,5 +1,5 @@
 const xlsx = require('xlsx')
-const { findPlayerPosition } = require('./findPlayerPositon')
+const { findPlayerPosition } = require('./findPlayerPosition')
 
 // Path to the file
 const playersList = 'app/data/PlayersList_24_25.xlsx'
