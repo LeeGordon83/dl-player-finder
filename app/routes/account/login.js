@@ -1,9 +1,9 @@
 module.exports = [{
   method: 'GET',
-  path: '/',
+  path: '/login',
   config: {
   },
   handler: async (request, h) => {
-    return h.view('index')
+    return h.view('login')
   }
 }]

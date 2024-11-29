@@ -1,9 +1,11 @@
 const routes = [].concat(
   require('../routes/index'),
+  require('../routes/about'),
+  require('../routes/buildGoalscorers'),
   require('../routes/fetchGoalscorers'),
-  require('../routes/public')
-  // ('../routes/account/login'),
-  // require('../routes/account/register'),
+  require('../routes/public'),
+  require('../routes/account/login'),
+  require('../routes/account/register')
   // require('../routes/account/forgot-password'),
   // require('../routes/account/reset-password'),
   // require('../routes/account/logout')

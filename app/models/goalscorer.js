@@ -17,10 +17,12 @@ const goalscorerSchema = new mongoose.Schema({
 const ChampionshipGoalscorer = mongoose.model('ChampionshipGoalscorer', goalscorerSchema)
 const LeagueOneGoalscorer = mongoose.model('LeagueOneGoalscorer', goalscorerSchema)
 const LeagueTwoGoalscorer = mongoose.model('LeagueTwoGoalscorer', goalscorerSchema)
+const AllGoalscorers = mongoose.model('AllGoalscorers', goalscorerSchema)
 
 // Export all the models
 module.exports = {
   ChampionshipGoalscorer,
   LeagueOneGoalscorer,
-  LeagueTwoGoalscorer
+  LeagueTwoGoalscorer,
+  AllGoalscorers
 }

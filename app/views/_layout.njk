@@ -53,18 +53,27 @@
               Select League
           </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="/finance/all-transactions">Championship</a>
-                <a class="dropdown-item" href="/finance/paid-in">League One</a>
-                <a class="dropdown-item" href="/finance/credit">League Two</a>
-                <a class="dropdown-item" href="/finance/balance-sheet">All</a>
+                <a class="dropdown-item" href="/fetch-goalscorers?league=2">Championship</a>
+                <a class="dropdown-item" href="/fetch-goalscorers?league=3">League One</a>
+                <a class="dropdown-item" href="/fetch-goalscorers?league=4">League Two</a>
+                <a class="dropdown-item" href="/fetch-goalscorers?league=1">All</a>
               </div>
             </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Position</a>
+            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select Position</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="/admin/season">Defenders</a>
-                <a class="dropdown-item" href="/admin/managers">Midfielders</a>
-                <a class="dropdown-item" href="/admin/prizes">Forwards</a>
+                <a class="dropdown-item" href="/fetch-goalscorers?position=0">Defenders</a>
+                <a class="dropdown-item" href="/fetch-goalscorers?position=1">Midfielders</a>
+                <a class="dropdown-item" href="/fetch-goalscorers?position=2">Forwards</a>
+                <a class="dropdown-item" href="/fetch-goalscorers?position=2">Unknown</a>
+              </div>
+            </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/build-goalscorers?league=2">Championship</a>
+                <a class="dropdown-item" href="/build-goalscorers?league=3">League One</a>
+                <a class="dropdown-item" href="/build-goalscorers?league=4">League Two</a>
               </div>
             </li>
           <li class="nav-item">
