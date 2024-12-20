@@ -1,4 +1,3 @@
-// models/goalscorerModel.js
 const mongoose = require('mongoose')
 
 const goalscorerSchema = new mongoose.Schema({
@@ -10,7 +9,14 @@ const goalscorerSchema = new mongoose.Schema({
   teamFromPlayersList: { type: String, default: undefined },
   position: { type: String, required: true },
   positionConfidence: { type: String, default: undefined },
-  manager: { type: String, default: undefined }
+  manager: { type: String, default: undefined },
+  uniqueIdentifier: { type: String, required: true, unique: true }
+})
+
+// Pre-save hook to generate uniqueIdentifier
+goalscorerSchema.pre('save', function (next) {
+  this.uniqueIdentifier = `${this['first-name']}-${this['last-name']}-${this.team}`
+  next()
 })
 
 // Create separate models for each league

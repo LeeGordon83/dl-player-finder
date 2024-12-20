@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#000000">
-    {# {% if cookiesPolicy and cookiesPolicy.analytics %}
+    {% if cookiesPolicy and cookiesPolicy.analytics %}
       <!-- Global site tag (gtag.js) - Google Analytics -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-C35GGT2X1B"></script>
       <script src="{{ assetPath }}/google-analytics.js"></script>
-    {% endif %} #}
-    <title>{{ appName }}</title>
+    {% endif %}
+    <title>{% block title %} {{ appName }} {% endblock %}</title>
     <link rel="icon" type="image/x-icon" href="{{ assetPath }}/favicon.ico"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/blitzer/jquery-ui.css">
@@ -36,9 +36,9 @@
 
 <body>
 
-    {# {% if cookiesPolicy and not cookiesPolicy.confirmed %}
+    {% if cookiesPolicy and not cookiesPolicy.confirmed %}
       {% include "./cookies/_cookie-banner.njk" %}
-    {% endif %} #}
+    {% endif %}
     {% block bodyStart %}{% endblock %}
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark box-shadow mb-3">
         <a class="navbar-brand" href="/">{{ appName }}</a>
@@ -71,16 +71,31 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="/build-goalscorers?league=2">Championship</a>
-                <a class="dropdown-item" href="/build-goalscorers?league=3">League One</a>
-                <a class="dropdown-item" href="/build-goalscorers?league=4">League Two</a>
+                <a class="dropdown-item" href="/build-goalscorers?league=2">Update Championship</a>
+                <a class="dropdown-item" href="/build-goalscorers?league=3">Update League One</a>
+                <a class="dropdown-item" href="/build-goalscorers?league=4">Update League Two</a>
+                <a class="dropdown-item" href="/users">User Admin</a>
               </div>
             </li>
           <li class="nav-item">
             <a class="nav-link text-light" href="/about">About</a>
           </li>
         </ul>
+                {% if userEmail.length === 0 %}
         {% include "_login.njk" %}
+                       {% else %}
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="nav-item">
+                            <span class="nav-link text-light">Hello, {{ userEmail }}</span>
+                        </li>
+                        <li class="nav-item">
+                            <form action="/logout" method="POST">
+                                <input type="hidden" name="crumb" value="{{crumb}}"/>
+                                <button type="submit" class="btn btn-link nav-link text-light">Logout</button>
+                            </form>
+                        </li>
+                    </ul>
+                {% endif %}
           </div>
       </nav>
      <div class="container">

@@ -1,5 +1,5 @@
 const CompetitionLookup = require('../helpers/competitionLookup')
-const retrieveGoalscorers = require('./retrieveGoalscorers')
+const { retrieveGoalscorers } = require('./retrieveGoalscorers')
 
 async function fetchGoalscorersList (competition) {
   try {

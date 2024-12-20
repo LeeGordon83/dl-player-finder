@@ -25,6 +25,7 @@
         <td style="text-align:center">{{ player['positionConfidence'] }}</td>
         <td style="text-align:center">{{ player['goals'] }}</td>
         <td style="text-align:center">{{ player['manager'] }}</td>
+        <td style="text-align:center"><a href="/edit-player/{{'id'}}?competition={{ competition }}">Edit</a></td>
       </tr>
       {% endfor %}
     </tbody>

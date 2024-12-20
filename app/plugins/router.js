@@ -5,10 +5,14 @@ const routes = [].concat(
   require('../routes/fetchGoalscorers'),
   require('../routes/public'),
   require('../routes/account/login'),
-  require('../routes/account/register')
+  require('../routes/account/register'),
+  require('../routes/users'),
+  require('../routes/edit-email'),
+  require('../routes/reset-password'),
+  require('../routes/account/logout'),
+  require('../routes/cookies')
   // require('../routes/account/forgot-password'),
   // require('../routes/account/reset-password'),
-  // require('../routes/account/logout')
 )
 
 module.exports = {

@@ -1,0 +1,45 @@
+{% extends '_layout.njk' %}
+
+{% block content %}
+  <h2>Edit Player Details</h2>
+  <form action="/edit-player/{{ player._id }}" method="POST">
+    <input type="hidden" name="crumb" value="{{ crumb }}">
+    <div class="form-group">
+      <label for="first-name">First Name:</label>
+      <input type="text" id="first-name" name="first-name" class="form-control" value="{{ player['first-name'] }}" required>
+    </div>
+
+    <div class="form-group">
+      <label for="last-name">Last Name:</label>
+      <input type="text" id="last-name" name="last-name" class="form-control" value="{{ player['last-name'] }}" required>
+    </div>
+
+    <div class="form-group">
+      <label for="team">Team:</label>
+      <input type="text" id="team" name="team" class="form-control" value="{{ player.team }}" required>
+    </div>
+
+    <div class="form-group">
+      <label for="position">Position:</label>
+      <input type="text" id="position" name="position" class="form-control" value="{{ player.position }}" required>
+    </div>
+
+    <div class="form-group">
+      <label for="positionConfidence">Position Confidence:</label>
+      <input type="text" id="positionConfidence" name="positionConfidence" class="form-control" value="{{ player.positionConfidence }}" required>
+    </div>
+
+    <div class="form-group">
+      <label for="goals">Goals:</label>
+      <input type="number" id="goals" name="goals" class="form-control" value="{{ player.goals }}" required>
+    </div>
+
+    <div class="form-group">
+      <label for="manager">Owned By:</label>
+      <input type="text" id="manager" name="manager" class="form-control" value="{{ player.manager }}" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+  <p><a href="/goalscorers?competition={{ competition }}">Back to Goalscorers</a></p>
+{% endblock %}
