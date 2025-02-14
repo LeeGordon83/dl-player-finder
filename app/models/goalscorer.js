@@ -5,6 +5,7 @@ const goalscorerSchema = new mongoose.Schema({
   'first-name': { type: String, required: true },
   'last-name': { type: String, required: true },
   team: { type: String, required: true },
+  competition: { type: String, required: true },
   goals: { type: Number, required: true },
   teamFromPlayersList: { type: String, default: undefined },
   position: { type: String, required: true },
@@ -23,12 +24,10 @@ goalscorerSchema.pre('save', function (next) {
 const ChampionshipGoalscorer = mongoose.model('ChampionshipGoalscorer', goalscorerSchema)
 const LeagueOneGoalscorer = mongoose.model('LeagueOneGoalscorer', goalscorerSchema)
 const LeagueTwoGoalscorer = mongoose.model('LeagueTwoGoalscorer', goalscorerSchema)
-const AllGoalscorers = mongoose.model('AllGoalscorers', goalscorerSchema)
 
 // Export all the models
 module.exports = {
   ChampionshipGoalscorer,
   LeagueOneGoalscorer,
-  LeagueTwoGoalscorer,
-  AllGoalscorers
+  LeagueTwoGoalscorer
 }

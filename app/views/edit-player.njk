@@ -20,13 +20,31 @@
     </div>
 
     <div class="form-group">
+      <label for="competition">Competition:</label>
+      <select id="competition" name="competition" class="form-control" required>
+        <option value="All" {% if player.competition == 'All' %}selected{% endif %}>All</option>
+        <option value="Championship" {% if player.competition == 'Championship' %}selected{% endif %}>Championship</option>
+        <option value="League One" {% if player.competition == 'League One' %}selected{% endif %}>League One</option>
+        <option value="League Two" {% if player.competition == 'League Two' %}selected{% endif %}>League Two</option>
+      </select>
+    </div>
+
+    <div class="form-group">
       <label for="position">Position:</label>
-      <input type="text" id="position" name="position" class="form-control" value="{{ player.position }}" required>
+      <select id="position" name="position" class="form-control" required>
+        <option value="DEF" {% if player.position == 'DEF' %}selected{% endif %}>DEF</option>
+        <option value="MID" {% if player.position == 'MID' %}selected{% endif %}>MID</option>
+        <option value="FWD" {% if player.position == 'FWD' %}selected{% endif %}>FWD</option>
+      </select>
     </div>
 
     <div class="form-group">
       <label for="positionConfidence">Position Confidence:</label>
-      <input type="text" id="positionConfidence" name="positionConfidence" class="form-control" value="{{ player.positionConfidence }}" required>
+      <select id="positionConfidence" name="positionConfidence" class="form-control" required>
+        <option value="High" {% if player.positionConfidence == 'High' %}selected{% endif %}>High</option>
+        <option value="Medium" {% if player.positionConfidence == 'Medium' %}selected{% endif %}>Medium</option>
+        <option value="Low" {% if player.positionConfidence == 'Low' %}selected{% endif %}>Low</option>
+      </select>
     </div>
 
     <div class="form-group">
@@ -36,10 +54,10 @@
 
     <div class="form-group">
       <label for="manager">Owned By:</label>
-      <input type="text" id="manager" name="manager" class="form-control" value="{{ player.manager }}" required>
+      <input type="text" id="manager" name="manager" class="form-control" value="{{ player.manager }}" readonly>
     </div>
 
     <button type="submit" class="btn btn-primary">Save</button>
   </form>
-  <p><a href="/goalscorers?competition={{ competition }}">Back to Goalscorers</a></p>
+  <p><a href="/goalscorers?competition={{ player.competition }}">Back to Goalscorers</a></p>
 {% endblock %}

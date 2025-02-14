@@ -9,6 +9,9 @@
         <th style="text-align:center">First Name</th>
         <th style="text-align:center">Last Name</th>
         <th style="text-align:center">Club</th>
+        {% if competition == 'All' %}
+        <th style="text-align:center">Competition</th>
+        {% endif %}
         <th style="text-align:center">Position</th>
         <th style="text-align:center">Position Confidence</th>
         <th style="text-align:center">Goals</th>
@@ -21,11 +24,14 @@
         <td style="text-align:center">{{ player['first-name'] }}</td>
         <td style="text-align:center">{{ player['last-name'] }}</td>
         <td style="text-align:center">{{ player['team'] }}</td>
+        {% if competition == 'All' %}
+        <td style="text-align:center">{{ player['competition'] }}</td>
+        {% endif %}
         <td style="text-align:center">{{ player['position'] }}</td>
         <td style="text-align:center">{{ player['positionConfidence'] }}</td>
         <td style="text-align:center">{{ player['goals'] }}</td>
         <td style="text-align:center">{{ player['manager'] }}</td>
-        <td style="text-align:center"><a href="/edit-player/{{'id'}}?competition={{ competition }}">Edit</a></td>
+        <td style="text-align:center"><a href="/edit-player/{{ player.id }}/{{ competition }}">Edit</a></td>
       </tr>
       {% endfor %}
     </tbody>

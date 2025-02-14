@@ -1,9 +1,9 @@
-const goalscorer = require('../models/goalscorer') // Mongoose models for goalscorers
+const goalscorer = require('../models/goalscorer')
+const CompetitionLookup = require('../helpers/competitionLookup')
 require('dotenv').config()
 
 // Mapping competition numbers to corresponding Mongoose models
 const goalscorerModels = {
-  1: goalscorer.AllGoalscorers,
   2: goalscorer.ChampionshipGoalscorer,
   3: goalscorer.LeagueOneGoalscorer,
   4: goalscorer.LeagueTwoGoalscorer
@@ -15,16 +15,18 @@ const recordGoalscorers = async (goalscorers, competition) => {
     // Get the correct model based on the competition value
     const selectedModel = goalscorerModels[competition]
 
+    const competitionLookup = new CompetitionLookup()
+    const competitionName = competitionLookup.getCompetitionName(competition)
+
     if (!selectedModel) {
       throw new Error('Invalid competition value')
     }
-
-    await selectedModel.deleteData()
 
     // Insert data into the selected goalscorer collection
     for (const goalscorer of goalscorers) {
       // Use a unique identifier to check for duplicates
       const uniqueIdentifier = `${goalscorer['first-name']}-${goalscorer['last-name']}-${goalscorer.team}`
+      goalscorer.competition = competitionName
       await selectedModel.updateOne(
         { uniqueIdentifier },
         { $set: goalscorer },

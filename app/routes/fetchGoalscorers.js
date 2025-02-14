@@ -20,7 +20,6 @@ module.exports = [
         try {
           const competition = Number(request.query.league) // Get league from query parameter
           const data = await fetchGoalscorersList.fetchGoalscorersList(competition, 1)
-          console.log('Data:', data)
           return h.view('goalscorers', {
             pageTitle: 'Goalscorers',
             competition: data.competition,
