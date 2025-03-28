@@ -39,10 +39,6 @@ async function createServer () {
   await server.register(require('./plugins/errors'))
   await server.register(require('./plugins/crumb'))
   await server.register(require('./plugins/view-context'))
-  // await server.register(require('./plugins/logging'))
-  // if (config.isDev) {
-  //   await server.register(require('blipp'))
-  // }
 
   return server
 }

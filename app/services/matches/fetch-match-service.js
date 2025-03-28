@@ -1,4 +1,4 @@
-const FootballApi = require('../api/footballWebApi')
+const FootballApi = require('../../api/football-web-api')
 const Bottleneck = require('bottleneck')
 
 const footballApi = new FootballApi('matchesUrl')

@@ -2,6 +2,27 @@
 
 {% block content %}
   <h2>{{ competition }} - Top Goalscorers</h2>
+
+<form method="GET" action="/fetch-goalscorers" class="mb-3">
+  <div class="row g-2 align-items-center">
+    <div class="col-auto">
+      <input type="hidden" name="league" value="{{ competitionId }}">
+      <select name="position" class="form-select form-select-sm">
+        <option value="">All Positions</option>
+        <option value="DEF" {% if selectedPosition === 'DEF' %}selected{% endif %}>Defenders</option>
+        <option value="MID" {% if selectedPosition === 'MID' %}selected{% endif %}>Midfielders</option>
+        <option value="FWD" {% if selectedPosition === 'FWD' %}selected{% endif %}>Forwards</option>
+      </select>
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary btn-sm">Apply Filters</button>
+      {% if selectedPosition %}
+        <a href="/fetch-goalscorers?league={{ competitionId }}" class="btn btn-secondary btn-sm">Clear</a>
+      {% endif %}
+    </div>
+  </div>
+</form>
+
   <br/>
   <table class="table table-hover table-sm small">
     <thead>
@@ -31,7 +52,7 @@
         <td style="text-align:center">{{ player['positionConfidence'] }}</td>
         <td style="text-align:center">{{ player['goals'] }}</td>
         <td style="text-align:center">{{ player['manager'] }}</td>
-        <td style="text-align:center"><a href="/edit-player/{{ player.id }}/{{ competition }}">Edit</a></td>
+        <td style="text-align:center"><a href="/edit-player/{{ player['id'] }}/{{ competitionId }}">Edit</a></td>
       </tr>
       {% endfor %}
     </tbody>

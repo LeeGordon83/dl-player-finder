@@ -1,6 +1,5 @@
 // fetch
-
-const FootballApi = require('../api/footballWebApi')
+const FootballApi = require('../../api/football-web-api')
 const footballApi = new FootballApi('goalscorersUrl')
 
 async function fetchScorersForCompetition (competition, pages) {

@@ -1,13 +1,15 @@
-const buildGoalscorersList = require('../services/buildGoalscorersList')
+const GoalscorersListService = require('../../services/goalscorers/goalscorers-list-service')
 const joi = require('joi')
 
+const goalscorersListService = new GoalscorersListService()
+
 module.exports = [{
-  method: 'GET', // Change to GET method
+  method: 'GET',
   path: '/build-goalscorers',
   options: {
     auth: false,
     validate: {
-      query: joi.object({ // Use query for GET request
+      query: joi.object({
         league: joi.number().required()
       }),
       failAction: async (request, h, error) => {
@@ -17,8 +19,8 @@ module.exports = [{
     },
     handler: async (request, h) => {
       try {
-        const competition = Number(request.query.league) // Use query instead of payload
-        const data = await buildGoalscorersList.buildGoalscorersList(competition, 1)
+        const competition = Number(request.query.league)
+        const data = await goalscorersListService.buildGoalscorersList(competition, 1)
         return h.view('goalscorers', {
           pageTitle: 'Goalscorers',
           competition: data.competition,
