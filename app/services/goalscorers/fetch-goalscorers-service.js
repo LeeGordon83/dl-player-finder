@@ -8,7 +8,7 @@ class FetchGoalscorersService {
     this.retrieveGoalscorersService = new RetrieveGoalscorersService()
   }
 
-  async fetchGoalscorersList (competition, position) {
+  async fetchGoalscorersList (competition, position, availableOnly) {
     try {
       const competitionId = Number(competition)
       const competitionName = this.competitionLookup.getCompetitionName(competitionId)
@@ -17,6 +17,10 @@ class FetchGoalscorersService {
       // Filter by position if specified
       if (position) {
         scorers = scorers.filter(player => player.position === position)
+      }
+
+      if (availableOnly ) {
+        scorers = scorers.filter(scorer => !scorer.manager)
       }
 
       return {

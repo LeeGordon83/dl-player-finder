@@ -12,22 +12,25 @@ module.exports = [{
     validate: {
       query: joi.object({
         league: joi.number().required(),
-        position: joi.string().optional().valid('DEF', 'MID', 'FWD', '')
+        position: joi.string().optional().valid('DEF', 'MID', 'FWD', ''),
+        availableOnly: joi.string().optional()
       })
     },
     handler: async (request, h) => {
       try {
         const competition = Number(request.query.league)
         const position = request.query.position
+        const availableOnly = request.query.availableOnly !== undefined 
 
-        const data = await fetchGoalscorersService.fetchGoalscorersList(competition, position)
+        const data = await fetchGoalscorersService.fetchGoalscorersList(competition, position, availableOnly)
 
         return h.view('goalscorers', {
           pageTitle: 'Goalscorers',
           competition: data.competition,
           competitionId: competition,
           goalscorers: data.scorers,
-          selectedPosition: position
+          selectedPosition: position,
+          availableOnly: availableOnly
         })
       } catch (error) {
         console.error('Error occurred while fetching goalscorers:', error)

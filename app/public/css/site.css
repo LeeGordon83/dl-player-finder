@@ -74,3 +74,9 @@ textarea {
   .tableNoLine .table {
       background-color: #ffffff;
   }
+
+}
+
+.height-match {
+  height: 30.6px;
+}
