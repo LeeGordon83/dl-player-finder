@@ -18,7 +18,6 @@ WORKDIR /home/node
 COPY --chown=node:node package*.json ./
 RUN npm install
 COPY --chown=node:node ./app ./app
-COPY --chown=node:node ./.git ./.git
 CMD [ "npm", "run", "start:watch" ]
 
 # Production
