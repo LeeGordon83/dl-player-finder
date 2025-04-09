@@ -20,7 +20,7 @@ module.exports = [{
       try {
         const competition = Number(request.query.league)
         const position = request.query.position
-        const availableOnly = request.query.availableOnly !== undefined 
+        const availableOnly = request.query.availableOnly !== undefined
 
         const data = await fetchGoalscorersService.fetchGoalscorersList(competition, position, availableOnly)
 
@@ -30,7 +30,7 @@ module.exports = [{
           competitionId: competition,
           goalscorers: data.scorers,
           selectedPosition: position,
-          availableOnly: availableOnly
+          availableOnly
         })
       } catch (error) {
         console.error('Error occurred while fetching goalscorers:', error)

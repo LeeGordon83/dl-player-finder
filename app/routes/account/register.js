@@ -40,29 +40,32 @@ module.exports = [{
         // Check if the user already exists
         const existingUser = await User.findOne({ email })
         if (existingUser) {
-          return h.view('register', {
-            error: 'Email is already registered.'
-          })
+          request.yar.flash('error', 'Email already registered')
+          return h.view('register')
         }
 
         // Hash the password
         const hashedPassword = await bcrypt.hash(password, 10)
+
+        const role = email === process.env.SUPERUSER_EMAIL ? 'superuser' : 'basic'
 
         // Create the new user
         const newUser = new User({
           firstName,
           surname,
           email,
-          password: hashedPassword
+          password: hashedPassword,
+          role
         })
         await newUser.save()
 
-        return h.redirect('/login').state('message', 'Registration successful. Please log in.')
+        request.yar.flash('success', 'Registration successful. Please log in.')
+
+        return h.redirect('/login')
       } catch (err) {
         console.error('Registration error:', err)
-        return h.view('register', {
-          error: 'An error occurred during registration. Please try again.'
-        })
+        request.yar.flash('error', 'An error occurred during registration. Please try again.')
+        return h.redirect('register')
       }
     }
   }

@@ -19,7 +19,7 @@ class FetchGoalscorersService {
         scorers = scorers.filter(player => player.position === position)
       }
 
-      if (availableOnly ) {
+      if (availableOnly) {
         scorers = scorers.filter(scorer => !scorer.manager)
       }
 
