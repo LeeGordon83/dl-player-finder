@@ -2,6 +2,7 @@ const hapi = require('@hapi/hapi')
 const config = require('./config')
 require('dotenv').config()
 const DatabaseHandler = require('./models/databaseHandler')
+const Yar = require('@hapi/yar')
 
 async function createServer () {
   // Create the hapi server
@@ -28,6 +29,17 @@ async function createServer () {
     console.error('Failed to connect to MongoDB:', error)
     process.exit(1) // Exit the process if the database connection fails
   }
+
+  await server.register({
+    plugin: Yar,
+    options: {
+      cookieOptions: {
+        password: process.env.SESSION_SECRET, // at least 32 characters
+        isSecure: process.env.NODE_ENV === 'production', // false in development
+        isHttpOnly: true
+      }
+    }
+  })
 
   // Register the plugins
   await server.register(require('@hapi/inert'))
