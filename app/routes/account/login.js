@@ -51,11 +51,13 @@ module.exports = [{
 
         // Generate a JWT token
         const token = jwt.sign(
-          { id: user._id,
+          {
+            id: user._id,
             email: user.email,
-            role: user.role },
+            role: user.role
+          },
           config.jwtConfig.secret,
-          { expiresIn: '1h' }
+          { expiresIn: '8h' }
         )
 
         // Store user session data
@@ -65,10 +67,13 @@ module.exports = [{
           role: user.role
         })
 
-        // Store the JWT token in the session
-        request.yar.set('token', token)
-
         return h.redirect('/')
+          .state('dl_token', token, {
+            ttl: 8 * 60 * 60 * 1000,
+            isSecure: process.env.NODE_ENV === 'production',
+            isHttpOnly: true,
+            path: '/'
+          })
       } catch (err) {
         console.error('Login error:', err)
         request.yar.flash('error', 'An error occurred during login. Please try again.')

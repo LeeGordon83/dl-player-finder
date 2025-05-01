@@ -8,6 +8,7 @@ async function createServer () {
   // Create the hapi server
   const server = hapi.server({
     port: config.port,
+    host: config.host,
     routes: {
       validate: {
         options: {
@@ -18,6 +19,13 @@ async function createServer () {
     router: {
       stripTrailingSlash: true
     }
+  })
+
+  server.state('dl_token', {
+    ttl: 8 * 60 * 60 * 1000, // 8 hours
+    isSecure: process.env.NODE_ENV === 'production',
+    isHttpOnly: true,
+    path: '/'
   })
 
   // Initialize the database connection
@@ -36,8 +44,10 @@ async function createServer () {
       cookieOptions: {
         password: process.env.SESSION_SECRET, // at least 32 characters
         isSecure: process.env.NODE_ENV === 'production', // false in development
-        isHttpOnly: true
-      }
+        isHttpOnly: true,
+        path: '/'
+      },
+      maxCookieSize: 0
     }
   })
 

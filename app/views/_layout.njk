@@ -59,22 +59,22 @@
                 <a class="dropdown-item" href="/fetch-goalscorers?league=1">All</a>
               </div>
             </li>
+      `{% if user and user.role === 'superuser' %}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="/build-goalscorers?league=2">Update Championship</a>
                 <a class="dropdown-item" href="/build-goalscorers?league=3">Update League One</a>
                 <a class="dropdown-item" href="/build-goalscorers?league=4">Update League Two</a>
-                    {# {% if user and user.role === 'superuser' %} #}
                 <a class="dropdown-item" href="/users">User Admin</a>
-                    {# {% endif %} #}
+       {% endif %}
               </div>
             </li>
           <li class="nav-item">
             <a class="nav-link text-light" href="/about">About</a>
           </li>
         </ul>
-                {% if userEmail.length === 0 %}
+    {% if userEmail.length === 0 %}
         {% include "_login.njk" %}
                        {% else %}
                     <ul class="nav navbar-nav navbar-right">
