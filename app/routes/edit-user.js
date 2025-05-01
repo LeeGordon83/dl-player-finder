@@ -1,5 +1,6 @@
 const joi = require('joi')
 const User = require('../models/user')
+const bcrypt = require('bcryptjs')
 
 module.exports = [{
   method: 'GET',
@@ -27,8 +28,8 @@ module.exports = [{
       failAction: async (request, h, err) => {
         console.log('Validation Error:', err.details)
         console.log('Failed Payload:', request.payload)
-        request.yar.flash('error', 'Invalid input. Please check your entries.');
-        return h.redirect(`/edit-user/${request.params.id}`).takeover();
+        request.yar.flash('error', 'Invalid input. Please check your entries.')
+        return h.redirect(`/edit-user/${request.params.id}`).takeover()
       }
     },
     handler: async (request, h) => {

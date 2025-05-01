@@ -3,7 +3,7 @@ const User = require('../models/user')
 const validate = async (decoded, request, h) => {
   try {
     const user = await User.findById(decoded.id)
-    
+
     if (!user) {
       console.error('User not found:', decoded.id)
       return { isValid: false }

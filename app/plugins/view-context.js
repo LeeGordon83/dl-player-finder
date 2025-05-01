@@ -14,7 +14,8 @@ module.exports = {
           request.response.source.context.currentYear = new Date().getUTCFullYear()
           request.response.source.context.auth = mapAuth(request)
           request.response.source.context.cookiesPolicy = getCurrentPolicy(request, h)
-          request.response.source.context.userEmail = request.state.user_email || ''
+          request.response.source.context.userEmail = request.auth.credentials?.email || ''
+          request.response.source.context.user = request.auth.credentials || null
         }
         return h.continue
       })
