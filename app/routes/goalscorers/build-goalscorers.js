@@ -1,5 +1,6 @@
 const GoalscorersListService = require('../../services/goalscorers/goalscorers-list-service')
 const joi = require('joi')
+const checkRoles = require('../../plugins/auth/checkRoles') // Import the checkRoles function
 
 const goalscorersListService = new GoalscorersListService()
 
@@ -7,7 +8,11 @@ module.exports = [{
   method: 'GET',
   path: '/build-goalscorers',
   options: {
-    auth: false,
+    auth: {
+      strategy: 'jwt',
+      mode: 'required'
+    },
+    pre: [{ method: checkRoles(['superuser']) }], // Use the centralized function
     validate: {
       query: joi.object({
         league: joi.number().required()
@@ -24,7 +29,15 @@ module.exports = [{
         return h.view('goalscorers', {
           pageTitle: 'Goalscorers',
           competition: data.competition,
-          goalscorers: data.scorers
+          competitionId: competition,
+          goalscorers: data.scorers,
+          user: request.auth.credentials,
+          auth: {
+            isAuthenticated: true,
+            isAnonymous: false,
+            isUser: true,
+            isAdmin: true
+          }
         })
       } catch (error) {
         console.error('Error occurred while fetching goalscorers:', error)

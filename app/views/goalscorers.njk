@@ -2,21 +2,28 @@
 
 {% block content %}
   <h2>{{ competition }} - Top Goalscorers</h2>
-
 <form method="GET" action="/fetch-goalscorers" class="mb-3">
   <div class="row g-2 align-items-center">
     <div class="col-auto">
       <input type="hidden" name="league" value="{{ competitionId }}">
-      <select name="position" class="form-select form-select-sm">
+      <select name="position" class="form-select form-select-sm height-match">
         <option value="">All Positions</option>
         <option value="DEF" {% if selectedPosition === 'DEF' %}selected{% endif %}>Defenders</option>
         <option value="MID" {% if selectedPosition === 'MID' %}selected{% endif %}>Midfielders</option>
         <option value="FWD" {% if selectedPosition === 'FWD' %}selected{% endif %}>Forwards</option>
       </select>
     </div>
+        <div class="col-auto">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="availableOnly" id="availableOnly" value="true" {% if availableOnly %}checked{% endif %}>
+        <label class="form-check-label" for="availableOnly">
+          Available Players Only
+        </label>
+      </div>
+    </div>
     <div class="col-auto">
       <button type="submit" class="btn btn-primary btn-sm">Apply Filters</button>
-      {% if selectedPosition %}
+      {% if selectedPosition or availableOnly %}
         <a href="/fetch-goalscorers?league={{ competitionId }}" class="btn btn-secondary btn-sm">Clear</a>
       {% endif %}
     </div>
@@ -33,10 +40,14 @@
         {% if competition == 'All' %}
         <th style="text-align:center">Competition</th>
         {% endif %}
+        {% if user and (user.role === 'admin' or user.role === 'superuser') %}
         <th style="text-align:center">Position</th>
         <th style="text-align:center">Position Confidence</th>
+        {% endif %}
         <th style="text-align:center">Goals</th>
+        {% if user and (user.role === 'admin' or user.role === 'superuser') %}    
         <th style="text-align:center">Owned By</th>
+        {% endif %}
       </tr>
     </thead>
     <tbody>
@@ -48,11 +59,15 @@
         {% if competition == 'All' %}
         <td style="text-align:center">{{ player['competition'] }}</td>
         {% endif %}
+        {% if user and (user.role === 'admin' or user.role === 'superuser') %}
         <td style="text-align:center">{{ player['position'] }}</td>
         <td style="text-align:center">{{ player['positionConfidence'] }}</td>
+        {% endif %}
         <td style="text-align:center">{{ player['goals'] }}</td>
+        {% if user and (user.role === 'admin' or user.role === 'superuser') %}    
         <td style="text-align:center">{{ player['manager'] }}</td>
         <td style="text-align:center"><a href="/edit-player/{{ player['id'] }}/{{ competitionId }}">Edit</a></td>
+        {% endif %}
       </tr>
       {% endfor %}
     </tbody>

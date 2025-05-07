@@ -2,9 +2,58 @@
 
 {% block content %}
 
-<h2>About</h2>
-<hr />
+<div class="container py-4">
+  <h2>About Dream League Player Finder</h2>
+  <hr />
 
-<p>This app is designed for my personal use to allow me to find top goalscorers by position.</p>
+  <div class="row">
+    <div class="col-md-8">
+      <h4>Purpose</h4>
+      <p>Dream League Player Finder is a specialised tool designed to help dream league managers identify top-performing goalscorers across the English Football League. By providing detailed filtering and position-based statistics, this application makes it easier to discover valuable players for your fantasy team.</p>
+      
+      <h4>Features</h4>
+      <ul>
+        <li><strong>Position Filtering:</strong> Easily filter players by their position (Defenders, Midfielders, Forwards)</li>
+        <li><strong>League Coverage:</strong> Access data from Championship, League One, and League Two</li>
+        <li><strong>Availability Filter:</strong> Focus on players who are still available for transfer</li>
+        <li><strong>Detailed Statistics:</strong> View comprehensive goal statistics for each player</li>
+        <li><strong>Admin Tools:</strong> For administrators, tools to manage player data and user accounts</li>
+      </ul>
+
+      <h4>How It Works</h4>
+      <p>The application aggregates goalscoring data from the English Football League and presents it in an easy-to-navigate interface. Dream League managers can filter by position and availability to find the perfect additions to their team. Regular updates ensure that the data remains current throughout the football season.</p>
+      
+      <h4>Development</h4>
+      <p>Dream League Player Finder was developed by Lee Gordon using Node.js, Hapi.js, and MongoDB. The application features a responsive design built with Bootstrap to ensure a seamless experience across all devices.</p>
+    </div>
+    
+    <div class="col-md-4">
+      <div class="card bg-light">
+        <div class="card-body">
+          <h5 class="card-title">Quick Tips</h5>
+          <ul class="list-unstyled">
+            <li>💡 Use position filters to find specialised goalscorers</li>
+            <li>💡 Check the "Available Players Only" option to see unclaimed players</li>
+            <li>💡 Data is updated regularly to reflect recent matches</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="card bg-light mt-4">
+        <div class="card-body">
+          <h5 class="card-title">Contact</h5>
+          <p>Have suggestions or found an issue? Please contact the administrator.</p>
+          <a href="mailto:dreamleaguefinance@hotmail.com" class="btn btn-primary">Send Feedback</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <hr class="my-4">
+  
+  <div class="text-center text-muted">
+    <p><small>Dream League Player Finder &copy; {{ currentYear }} Lee Gordon. All rights reserved.</small></p>
+  </div>
+</div>
 
 {% endblock %}
