@@ -8,7 +8,10 @@ module.exports = [{
   method: 'GET',
   path: '/fetch-goalscorers',
   options: {
-    auth: false,
+    auth: {
+      strategy: 'jwt',
+      mode: 'try'
+    },
     validate: {
       query: joi.object({
         league: joi.number().required(),
@@ -30,7 +33,18 @@ module.exports = [{
           competitionId: competition,
           goalscorers: data.scorers,
           selectedPosition: position,
-          availableOnly
+          availableOnly,
+          // Add these lines to pass authentication data to the view
+          user: request.auth.credentials,
+          auth: {
+            isAuthenticated: request.auth.isAuthenticated,
+            isAnonymous: !request.auth.isAuthenticated,
+            isUser: request.auth.isAuthenticated,
+            isAdmin: request.auth.isAuthenticated &&
+                    request.auth.credentials &&
+                    (request.auth.credentials.role === 'admin' ||
+                     request.auth.credentials.role === 'superuser')
+          }
         })
       } catch (error) {
         console.error('Error occurred while fetching goalscorers:', error)

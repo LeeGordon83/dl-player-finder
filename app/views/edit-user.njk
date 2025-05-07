@@ -9,7 +9,7 @@
    {% if success %}
     <div class="alert alert-success">{{ success }}</div>
   {% endif %}
-  <form action="/edit-user/{{ user._id }}" method="POST">
+  <form action="/edit-user/{{ userData._id }}" method="POST">
   <input type='hidden' name='crumb' value='{{ crumb }}'>
         <div class="form-group mb-3">
       <label for="firstName">First Name</label>
@@ -17,7 +17,7 @@
              class="form-control" 
              id="firstName" 
              name="firstName" 
-             value="{{ user.firstName }}" 
+             value="{{ userData.firstName }}" 
              required>
     </div>
 
@@ -27,7 +27,7 @@
              class="form-control" 
              id="surname" 
              name="surname" 
-             value="{{ user.surname }}" 
+             value="{{ userData.surname }}" 
              required>
     </div>
     
@@ -37,15 +37,15 @@
              class="form-control" 
              id="email" 
              name="email" 
-             value="{{ user.email }}" 
+             value="{{ userData.email }}" 
              required>
     </div>
        <div class="form-group mb-3">
       <label for="role">User Role</label>
       <select class="form-control" id="role" name="role" required>
-        <option value="basic" {% if user.role === 'basic' %}selected{% endif %}>Basic</option>
-        <option value="admin" {% if user.role === 'admin' %}selected{% endif %}>Admin</option>
-        <option value="superuser" {% if user.role === 'superuser' %}selected{% endif %}>Superuser</option>
+        <option value="basic" {% if userData.role === 'basic' %}selected{% endif %}>Basic</option>
+        <option value="admin" {% if userData.role === 'admin' %}selected{% endif %}>Admin</option>
+        <option value="superuser" {% if userData.role === 'superuser' %}selected{% endif %}>Superuser</option>
       </select>
     </div>
 <div class="form-group mb-3">

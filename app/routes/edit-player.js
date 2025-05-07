@@ -2,6 +2,7 @@
 const RetrieveGoalscorersService = require('../services/goalscorers/retrieve-goalscorers-service')
 const UpdateGoalscorersService = require('../services/goalscorers/update-goalscorers-service')
 const CompetitionLookup = require('../services/competition/competition-lookup-service')
+const checkRoles = require('../plugins/auth/checkRoles')
 
 const retrieveGoalscorersService = new RetrieveGoalscorersService()
 const updateGoalscorersService = new UpdateGoalscorersService()
@@ -9,7 +10,12 @@ const updateGoalscorersService = new UpdateGoalscorersService()
 module.exports = [{
   method: 'GET',
   path: '/edit-player/{id}/{competition}',
-  config: {
+  options: {
+    auth: {
+      strategy: 'jwt',
+      mode: 'required'
+    },
+    pre: [{ method: checkRoles(['admin', 'superuser']) }]
   },
   handler: async (request, h) => {
     const playerId = request.params.id
