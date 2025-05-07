@@ -1,0 +1,27 @@
+{% extends '_layout.njk' %}
+
+{% block content %}
+<div class="container">
+  <h1>Delete User</h1>
+  
+  <div class="alert alert-danger">
+    <h4>Are you sure you want to delete this user?</h4>
+    <p>This action cannot be undone.</p>
+  </div>
+  
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">User Details</h5>
+      <p><strong>Name:</strong> {{ userData.firstName }} {{ userData.surname }}</p>
+      <p><strong>Email:</strong> {{ userData.email }}</p>
+      <p><strong>Role:</strong> {{ userData.role }}</p>
+    </div>
+  </div>
+  
+  <form action="/delete-user/{{ userData._id }}" method="POST">
+    <input type="hidden" name="crumb" value="{{ crumb }}">
+    <button type="submit" class="btn btn-danger">Delete User</button>
+    <a href="/users" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
+{% endblock %}
