@@ -11,8 +11,8 @@ const routes = [].concat(
   require('../routes/edit-player'),
   require('../routes/reset-password'),
   require('../routes/account/logout'),
-  require('../routes/cookies')
-  // require('../routes/account/forgot-password'),
+  require('../routes/cookies'),
+  require('../routes/account/forgot-password')
   // require('../routes/account/reset-password'),
 )
 
