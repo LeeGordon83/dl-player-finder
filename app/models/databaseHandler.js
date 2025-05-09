@@ -8,7 +8,7 @@ class DatabaseHandler {
   // Connect to MongoDB
   async connect () {
     try {
-      await mongoose.connect(this.uri, { useNewUrlParser: true, useUnifiedTopology: true })
+      await mongoose.connect(this.uri)
       console.log('Connected to MongoDB')
     } catch (error) {
       console.error('Failed to connect to MongoDB', error)
