@@ -1,0 +1,248 @@
+{
+  "championship": [
+    {
+      "id": 1001,
+      "first-name": "James",
+      "last-name": "Wilson",
+      "team": "Norwich City",
+      "competition": "Championship",
+      "goals": 12,
+      "teamFromPlayersList": "Norwich City",
+      "position": "FWD",
+      "positionConfidence": "High",
+      "manager": "John Smith"
+    },
+    {
+      "id": 1002,
+      "first-name": "Michael",
+      "last-name": "Thompson",
+      "team": "Leeds United",
+      "competition": "Championship",
+      "goals": 9,
+      "teamFromPlayersList": "Leeds United",
+      "position": "MID",
+      "positionConfidence": "High",
+      "manager": "Sarah Johnson"
+    },
+    {
+      "id": 1003,
+      "first-name": "David",
+      "last-name": "Roberts",
+      "team": "Sheffield United",
+      "competition": "Championship",
+      "goals": 7,
+      "teamFromPlayersList": "Sheffield United",
+      "position": "FWD",
+      "positionConfidence": "High",
+      "manager": null
+    },
+    {
+      "id": 1004,
+      "first-name": "Robert",
+      "last-name": "Brown",
+      "team": "Watford",
+      "competition": "Championship",
+      "goals": 6,
+      "teamFromPlayersList": "Watford",
+      "position": "MID",
+      "positionConfidence": "Medium",
+      "manager": "Emma Wilson"
+    },
+    {
+      "id": 1005,
+      "first-name": "Thomas",
+      "last-name": "Davis",
+      "team": "Middlesbrough",
+      "competition": "Championship",
+      "goals": 5,
+      "teamFromPlayersList": "Middlesbrough",
+      "position": "DEF",
+      "positionConfidence": "High",
+      "manager": null
+    },
+    {
+      "id": 1006,
+      "first-name": "Christopher",
+      "last-name": "Miller",
+      "team": "Burnley",
+      "competition": "Championship",
+      "goals": 4,
+      "teamFromPlayersList": "Burnley",
+      "position": "MID",
+      "positionConfidence": "High",
+      "manager": "David Thompson"
+    }
+  ],
+  "leagueOne": [
+    {
+      "id": 2001,
+      "first-name": "Daniel",
+      "last-name": "Wilson",
+      "team": "Peterborough United",
+      "competition": "League One",
+      "goals": 14,
+      "teamFromPlayersList": "Peterborough United",
+      "position": "FWD",
+      "positionConfidence": "High",
+      "manager": "Michael Brown"
+    },
+    {
+      "id": 2002,
+      "first-name": "Paul",
+      "last-name": "Johnson",
+      "team": "Bolton Wanderers",
+      "competition": "League One",
+      "goals": 11,
+      "teamFromPlayersList": "Bolton Wanderers",
+      "position": "FWD",
+      "positionConfidence": "High",
+      "manager": null
+    },
+    {
+      "id": 2003,
+      "first-name": "Mark",
+      "last-name": "Taylor",
+      "team": "Wycombe Wanderers",
+      "competition": "League One",
+      "goals": 8,
+      "teamFromPlayersList": "Wycombe Wanderers",
+      "position": "MID",
+      "positionConfidence": "Medium",
+      "manager": "Jennifer Davis"
+    },
+    {
+      "id": 2004,
+      "first-name": "George",
+      "last-name": "Anderson",
+      "team": "Portsmouth",
+      "competition": "League One",
+      "goals": 7,
+      "teamFromPlayersList": "Portsmouth",
+      "position": "MID",
+      "positionConfidence": "High",
+      "manager": "Robert Wilson"
+    },
+    {
+      "id": 2005,
+      "first-name": "Kenneth",
+      "last-name": "Thomas",
+      "team": "Charlton Athletic",
+      "competition": "League One",
+      "goals": 6,
+      "teamFromPlayersList": "Charlton Athletic",
+      "position": "DEF",
+      "positionConfidence": "Low",
+      "manager": null
+    },
+    {
+      "id": 2006,
+      "first-name": "Steven",
+      "last-name": "Jackson",
+      "team": "Oxford United",
+      "competition": "League One",
+      "goals": 5,
+      "teamFromPlayersList": "Oxford United",
+      "position": "MID",
+      "positionConfidence": "High",
+      "manager": "Thomas Brown"
+    },
+    {
+      "id": 2007,
+      "first-name": "Edward",
+      "last-name": "White",
+      "team": "Ipswich Town",
+      "competition": "League One",
+      "goals": 4,
+      "teamFromPlayersList": "Ipswich Town",
+      "position": "DEF",
+      "positionConfidence": "Medium",
+      "manager": null
+    }
+  ],
+  "leagueTwo": [
+    {
+      "id": 3001,
+      "first-name": "Brian",
+      "last-name": "Harris",
+      "team": "Bradford City",
+      "competition": "League Two",
+      "goals": 15,
+      "teamFromPlayersList": "Bradford City",
+      "position": "FWD",
+      "positionConfidence": "High",
+      "manager": "William Johnson"
+    },
+    {
+      "id": 3002,
+      "first-name": "Ronald",
+      "last-name": "Martin",
+      "team": "Mansfield Town",
+      "competition": "League Two",
+      "goals": 12,
+      "teamFromPlayersList": "Mansfield Town",
+      "position": "FWD",
+      "positionConfidence": "High",
+      "manager": null
+    },
+    {
+      "id": 3003,
+      "first-name": "Anthony",
+      "last-name": "Thompson",
+      "team": "Leyton Orient",
+      "competition": "League Two",
+      "goals": 10,
+      "teamFromPlayersList": "Leyton Orient",
+      "position": "MID",
+      "positionConfidence": "High",
+      "manager": "Elizabeth Clark"
+    },
+    {
+      "id": 3004,
+      "first-name": "Kevin",
+      "last-name": "Lewis",
+      "team": "Salford City",
+      "competition": "League Two",
+      "goals": 8,
+      "teamFromPlayersList": "Salford City",
+      "position": "MID",
+      "positionConfidence": "Medium",
+      "manager": null
+    },
+    {
+      "id": 3005,
+      "first-name": "Jason",
+      "last-name": "Lee",
+      "team": "Tranmere Rovers",
+      "competition": "League Two",
+      "goals": 7,
+      "teamFromPlayersList": "Tranmere Rovers",
+      "position": "FWD",
+      "positionConfidence": "High",
+      "manager": "Richard Walker"
+    },
+    {
+      "id": 3006,
+      "first-name": "Matthew",
+      "last-name": "Walker",
+      "team": "Carlisle United",
+      "competition": "League Two",
+      "goals": 6,
+      "teamFromPlayersList": "Carlisle United",
+      "position": "DEF",
+      "positionConfidence": "Low",
+      "manager": null
+    },
+    {
+      "id": 3007,
+      "first-name": "Gary",
+      "last-name": "Hall",
+      "team": "Exeter City",
+      "competition": "League Two",
+      "goals": 5,
+      "teamFromPlayersList": "Exeter City",
+      "position": "MID",
+      "positionConfidence": "High",
+      "manager": "Patricia Allen"
+    }
+  ]
+}
