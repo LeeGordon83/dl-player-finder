@@ -16,7 +16,7 @@ module.exports = [{
       try {
         const { id } = request.params
         const user = await User.findById(id).lean()
-        
+
         if (!user) {
           request.yar.flash('error', 'User not found')
           return h.redirect('/users')
@@ -56,15 +56,15 @@ module.exports = [{
     handler: async (request, h) => {
       try {
         const { id } = request.params
-        
+
         // Delete the user
         const result = await User.findByIdAndDelete(id)
-        
+
         if (!result) {
           request.yar.flash('error', 'User not found')
           return h.redirect('/users')
         }
-        
+
         request.yar.flash('success', 'User deleted successfully')
         return h.redirect('/users')
       } catch (err) {
