@@ -1,6 +1,6 @@
 const GoalscorersListService = require('../../services/goalscorers/goalscorers-list-service')
 const joi = require('joi')
-const checkRoles = require('../../plugins/auth/checkRoles') // Import the checkRoles function
+const checkRoles = require('../../plugins/auth/checkRoles')
 
 const goalscorersListService = new GoalscorersListService()
 
@@ -12,7 +12,7 @@ module.exports = [{
       strategy: 'jwt',
       mode: 'required'
     },
-    pre: [{ method: checkRoles(['superuser']) }], // Use the centralized function
+    pre: [{ method: checkRoles(['superuser']) }],
     validate: {
       query: joi.object({
         league: joi.number().required()
@@ -25,7 +25,7 @@ module.exports = [{
     handler: async (request, h) => {
       try {
         const competition = Number(request.query.league)
-        const data = await goalscorersListService.buildGoalscorersList(competition, 1)
+        const data = await goalscorersListService.buildGoalscorersList(competition)
         return h.view('goalscorers', {
           pageTitle: 'Goalscorers',
           competition: data.competition,

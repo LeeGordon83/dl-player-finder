@@ -1,0 +1,10 @@
+{% extends "_layout.njk" %}
+{% block content %}
+  <h2>Goalscorers Deleted</h2>
+  <ul>
+    <li>Championship: {{ deleted.championship }}</li>
+    <li>League One: {{ deleted.leagueOne }}</li>
+    <li>League Two: {{ deleted.leagueTwo }}</li>
+  </ul>
+  <a href="/">Return to Home</a>
+{% endblock %}

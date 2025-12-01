@@ -1,5 +1,4 @@
 const joi = require('joi')
-const bcrypt = require('bcrypt')
 const User = require('../../models/user')
 
 module.exports = [{
@@ -44,9 +43,6 @@ module.exports = [{
           return h.view('register')
         }
 
-        // Hash the password
-        const hashedPassword = await bcrypt.hash(password, 10)
-
         const role = email === process.env.SUPERUSER_EMAIL ? 'superuser' : 'basic'
 
         // Create the new user
@@ -54,7 +50,7 @@ module.exports = [{
           firstName,
           surname,
           email,
-          password: hashedPassword,
+          password,
           role
         })
         await newUser.save()

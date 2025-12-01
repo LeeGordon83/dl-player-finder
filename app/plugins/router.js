@@ -3,6 +3,7 @@ const routes = [].concat(
   require('../routes/about'),
   require('../routes/goalscorers/build-goalscorers'),
   require('../routes/goalscorers/fetch-goalscorers'),
+  require('../routes/goalscorers/delete-goalscorers'),
   require('../routes/public'),
   require('../routes/account/login'),
   require('../routes/account/register'),

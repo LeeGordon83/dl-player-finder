@@ -1,17 +1,19 @@
-const xlsx = require('xlsx')
+const ExcelJS = require('exceljs')
 const PlayerPositionLookupService = require('./player-position-lookup-service')
 
 class AddPlayerPositionsService {
   constructor () {
     this.playerPositionLookupService = new PlayerPositionLookupService()
-    this.playersList = 'app/data/PlayersList_24_25.xlsx'
+    this.playersList = 'app/data/PlayersList_25_26.xlsx'
   }
 
   async addPlayerPositions (playersWithTeams) {
-    const workbook = xlsx.readFile(this.playersList)
+    // Load workbook with exceljs
+    const workbook = new ExcelJS.Workbook()
+    await workbook.xlsx.readFile(this.playersList)
 
     for (const player of playersWithTeams) {
-      const result = this.playerPositionLookupService.findPlayerPosition(
+      const result = await this.playerPositionLookupService.findPlayerPosition(
         player['first-name'],
         player['last-name'],
         player.team,

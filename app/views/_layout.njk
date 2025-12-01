@@ -67,6 +67,12 @@
                 <a class="dropdown-item" href="/build-goalscorers?league=3">Update League One</a>
                 <a class="dropdown-item" href="/build-goalscorers?league=4">Update League Two</a>
                 <a class="dropdown-item" href="/users">User Admin</a>
+                <form action="/delete-goalscorers" method="POST" style="display:inline;">
+                <input type="hidden" name="crumb" value="{{ crumb }}">
+    <button type="submit" class="dropdown-item" onclick="return confirm('Are you sure you want to delete all goalscorers?')">
+      Delete All Goalscorers
+    </button>
+  </form>
               </div>
             </li>
        {% endif %}
