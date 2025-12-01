@@ -17,6 +17,9 @@ const schema = joi.object().keys({
     matchesUrl: joi.string().uri().required()
   }),
   dreamLeagueAPI: joi.string().uri().required(),
+  fbChampionship: joi.string().uri().required(),
+  fbLeagueOne: joi.string().uri().required(),
+  fbLeagueTwo: joi.string().uri().required(),
   cookieOptions: joi.object({
     ttl: joi.number().default(1000 * 60 * 60 * 24 * 365), // 1 year
     encoding: joi.string().valid('base64json').default('base64json'),
@@ -43,6 +46,9 @@ const config = {
     matchesUrl: process.env.MATCHES_URL
   },
   dreamLeagueAPI: process.env.DREAM_LEAGUE_URL,
+  fbChampionship: process.env.FBREF_CHAMPIONSHIP_URL,
+  fbLeagueOne: process.env.FBREF_LEAGUE_ONE_URL,
+  fbLeagueTwo: process.env.FBREF_LEAGUE_TWO_URL,
   cookieOptions: {
     ttl: process.env.COOKIE_TTL,
     encoding: process.env.COOKIE_ENCODING,

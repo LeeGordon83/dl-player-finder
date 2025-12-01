@@ -11,7 +11,7 @@ class CompetitionLookup {
 
   // Method to get competition name based on ID
   getCompetitionName (competitionId) {
-    return this.competitions[competitionId] || 'Unknown Competition' // Return 'Unknown Competition' if ID is not found
+    return this.competitions[competitionId] || 'Unknown Competition'
   }
 
   // Method to get competition ID based on name
@@ -21,7 +21,7 @@ class CompetitionLookup {
         return parseInt(id)
       }
     }
-    return null // Return null if name is not found
+    return null
   }
 }
 

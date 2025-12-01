@@ -1,10 +1,8 @@
-// fetch
-const FootballApi = require('../../api/football-web-api')
-const footballApi = new FootballApi('goalscorersUrl')
+const { scrapeGoalscorers } = require('../../scraper/scrape.js')
 
 async function fetchScorersForCompetition (competition, pages) {
   try {
-    const data = await footballApi.fetchGoalscorers(competition, pages)
+    const data = await scrapeGoalscorers(competition)
     return data
   } catch (error) {
     console.error('Error fetching goalscorers:', error)

@@ -4,6 +4,7 @@ const goalscorerSchema = new mongoose.Schema({
   id: { type: Number, required: true },
   'first-name': { type: String, required: true },
   'last-name': { type: String, required: true },
+  player: { type: String, required: true },
   team: { type: String, required: true },
   competition: { type: String, required: true },
   goals: { type: Number, required: true },
