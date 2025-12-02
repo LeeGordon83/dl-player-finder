@@ -36,7 +36,8 @@ class UpdateGoalscorersService {
             team: updateData.team,
             position: updateData.position,
             positionConfidence: updateData.positionConfidence,
-            goals: Number(updateData.goals)
+            goals: Number(updateData.goals),
+             manager: updateData.manager || undefined 
           }
         },
         { new: true, runValidators: true }
