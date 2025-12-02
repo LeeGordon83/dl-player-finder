@@ -55,10 +55,17 @@
       <input type="number" id="goals" name="goals" class="form-control" value="{{ player.goals }}" required>
     </div>
 
-    <div class="form-group">
-      <label for="manager">Owned By:</label>
-      <input type="text" id="manager" name="manager" class="form-control" value="{{ player.manager }}" readonly>
-    </div>
+<div class="form-group">
+  <label for="manager">Owned By:</label>
+  <select id="manager" name="manager" class="form-control">
+    <option value="">-- Not Owned --</option>
+    {% for manager in managers %}
+      <option value="{{ manager }}" {% if player.manager == manager %}selected{% endif %}>
+        {{ manager }}
+      </option>
+    {% endfor %}
+  </select>
+</div>
 
     <button type="submit" class="btn btn-primary">Save</button>
   </form>

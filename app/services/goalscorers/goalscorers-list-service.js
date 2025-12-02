@@ -25,17 +25,17 @@ class GoalscorersListService {
         // Remove players with invalid/placeholder names
         const firstName = (player['first-name'] || '').trim()
         const lastName = (player['last-name'] || '').trim()
-        const player_name = (player.player || '').trim()
-        
+        const playerName = (player.player || '').trim()
+
         // Filter out placeholder/header rows
         if (!firstName || !lastName) return false
-        if (player_name.toLowerCase() === 'player') return false
+        if (playerName.toLowerCase() === 'player') return false
         if (lastName.toLowerCase() === 'squad') return false
-        
+
         // Filter out players with no goals or invalid goal values
         const goals = Number(player.goals)
         if (isNaN(goals) || goals <= 0) return false
-        
+
         return true
       })
 
@@ -44,7 +44,7 @@ class GoalscorersListService {
         // First sort by goals (descending)
         const goalsDiff = Number(b.goals) - Number(a.goals)
         if (goalsDiff !== 0) return goalsDiff
-        
+
         // If goals are equal, sort by last name (ascending)
         const lastNameA = (a['last-name'] || '').toLowerCase()
         const lastNameB = (b['last-name'] || '').toLowerCase()

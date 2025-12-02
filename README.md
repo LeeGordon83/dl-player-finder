@@ -1,4 +1,3 @@
-
 # DL Player Finder App
 
 ## Description
@@ -50,11 +49,10 @@ Create a .env file in the project root with these variables:
 | `PORT`              | Application port                    | `3000`                                                  |
 | `MONGO_URL`         | MongoDB connection string           | `mongodb://mongo:27017/dream-league`                   |
 | `NODE_ENV`          | Environment setting                 | `development`                                           |
-| `RAPIDAPI_HOST`     | Football Web Pages API Host         | `football-web-pages1.p.rapidapi.com`                   |
-| `RAPIDAPI_KEY`      | Your RapidAPI Key                   | Get from [RapidAPI](https://rapidapi.com)              |
-| `GOALSCORERS_URL`   | Goalscorers API Endpoint            | `https://football-web-pages1.p.rapidapi.com/goalscorers.json` |
-| `MATCHES_URL`       | Matches API Endpoint                | `https://football-web-pages1.p.rapidapi.com/match.json` |
 | `DREAM_LEAGUE_URL`  | Dream League API URL                | `https://dreamleaguefantasyfootball.co.uk/api/v1/manager/teams` |
+| `FB_CHAMPIONSHIP`   | FBRef Championship Stats URL        | FBRef Championship statistics page                      |
+| `FB_LEAGUE_ONE`     | FBRef League One Stats URL          | FBRef League One statistics page                        |
+| `FB_LEAGUE_TWO`     | FBRef League Two Stats URL          | FBRef League Two statistics page                        |
 
 
 ## Development
@@ -78,6 +76,8 @@ The application is configured with hot-reload in development mode. Code changes 
 -   Persistent MongoDB storage
     
 -   Containerized development environment
+    
+-   Web scraping for real-time player statistics from FBRef
     
 
 ## Scripts
@@ -144,7 +144,7 @@ MIT License
 
 Copyright (c) 2025 Lee Gordon
 
-Permission is hereby granted, free of charge, to any person obtaining a copy [1]
+Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell

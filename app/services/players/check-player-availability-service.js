@@ -10,16 +10,16 @@ class CheckPlayerAvailabilityService {
     for (const scorer of scorersWithTeamsAndPositions) {
       const firstName = (scorer['first-name'] || '').trim()
       const lastName = (scorer['last-name'] || '').trim()
-      
+
       if (!firstName || !lastName) continue
 
       // Try multiple name formats
       const dreamLeagueFormat = `${lastName}, ${firstName}` // "Last, First"
       const normalFormat = `${firstName} ${lastName}` // "First Last"
-      
+
       // 3. Search for a matching player in the Dream League API data
       let matchingPlayer = this._findExactMatch(dreamLeagueData.data.players, dreamLeagueFormat)
-      
+
       if (!matchingPlayer) {
         matchingPlayer = this._findExactMatch(dreamLeagueData.data.players, normalFormat)
       }
@@ -37,7 +37,7 @@ class CheckPlayerAvailabilityService {
   }
 
   _findExactMatch (players, fullName) {
-    return players.find(player => 
+    return players.find(player =>
       player.name.toLowerCase() === fullName.toLowerCase()
     )
   }
@@ -46,7 +46,7 @@ class CheckPlayerAvailabilityService {
     // Try matching against both name formats
     const dreamLeagueFormat = `${lastName}, ${firstName}`
     const normalFormat = `${firstName} ${lastName}`
-    
+
     // Calculate Levenshtein distances for both formats
     const distances = players.map(player => {
       const dist1 = calculateDistance(dreamLeagueFormat.toLowerCase(), player.name.toLowerCase())

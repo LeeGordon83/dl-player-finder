@@ -10,12 +10,6 @@ const schema = joi.object().keys({
   jwtConfig: joi.object({
     secret: joi.string()
   }),
-  apiHost: joi.string().required(),
-  apiKey: joi.string().required(),
-  apiEndpoints: joi.object({
-    goalscorersUrl: joi.string().uri().required(),
-    matchesUrl: joi.string().uri().required()
-  }),
   dreamLeagueAPI: joi.string().uri().required(),
   fbChampionship: joi.string().uri().required(),
   fbLeagueOne: joi.string().uri().required(),
@@ -38,12 +32,6 @@ const config = {
   appName: process.env.APP_NAME,
   jwtConfig: {
     secret: process.env.JWT_SECRET
-  },
-  apiHost: process.env.RAPIDAPI_HOST,
-  apiKey: process.env.RAPIDAPI_KEY,
-  apiEndpoints: {
-    goalscorersUrl: process.env.GOALSCORERS_URL,
-    matchesUrl: process.env.MATCHES_URL
   },
   dreamLeagueAPI: process.env.DREAM_LEAGUE_URL,
   fbChampionship: process.env.FBREF_CHAMPIONSHIP_URL,
