@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "an app which creates a list of targets for a dream league team",
   "main": "app/index.js",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "start": "node app/index.js",
     "test": "jest --runInBand",
