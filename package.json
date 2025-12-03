@@ -46,7 +46,8 @@
     "nodemailer": "^7.0.10",
     "nunjucks": "^3.2.4",
     "puppeteer": "^24.31.0",
-    "qs": "^6.13.0"
+    "qs": "^6.13.0",
+    "undici": "^5.28.4"
   },
   "devDependencies": {
     "blipp": "^4.0.2",
