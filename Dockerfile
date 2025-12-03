@@ -16,12 +16,12 @@ RUN apk update && \
 USER node
 WORKDIR /home/node
 COPY --chown=node:node package*.json ./
-RUN npm install
+RUN npm cache clean --force && npm install
 COPY --chown=node:node ./app ./app
 CMD [ "npm", "run", "start:watch" ]
 
 # Production
 FROM development AS production
 ENV NODE_ENV production
-RUN npm ci
+RUN npm ci --only=production
 CMD [ "node", "app" ]
