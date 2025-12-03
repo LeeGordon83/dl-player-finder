@@ -11,7 +11,7 @@ const header = records.shift()
 
 // --- Load Excel workbook ---
 const workbook = new ExcelJS.Workbook()
-await workbook.xlsx.readFile('app/data/PlayersList_25_26.xlsx')
+await workbook.xlsx.readFile('app/sheets/PlayersList_25_26.xlsx')
 
 // Get worksheet named "ALL"
 const worksheet = workbook.getWorksheet('ALL')
