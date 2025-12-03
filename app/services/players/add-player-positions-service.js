@@ -4,7 +4,7 @@ const PlayerPositionLookupService = require('./player-position-lookup-service')
 class AddPlayerPositionsService {
   constructor () {
     this.playerPositionLookupService = new PlayerPositionLookupService()
-    this.playersList = 'app/data/PlayersList_25_26.xlsx'
+    this.playersList = 'app/sheets/PlayersList_25_26.xlsx'
   }
 
   async addPlayerPositions (playersWithTeams) {
