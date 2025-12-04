@@ -2,23 +2,30 @@ services:
   app:
     build: .
     ports:
-      - "3000:3000"    # Map port 3000 on the host to port 3000 in the container
+      - "3000:3000"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/dream-league
     env_file:
-      - .env  # Load from the .env file
+      - .env
     depends_on:
-      - mongo          # Ensure MongoDB service is started before the app
+      - mongo
     networks:
-      - app-network     # Define a custom network
+      - app-network
+    # Add these security options for Puppeteer/Chromium
+    cap_add:
+      - SYS_ADMIN
+    security_opt:
+      - seccomp:unconfined
 
   mongo:
     image: mongo:latest
     ports:
-      - "27017:27017"   # Map MongoDB port
+      - "27017:27017"
     volumes:
-      - ./data:/data/db  # Persist MongoDB data on the host machine
+      - ./data:/data/db
     networks:
-      - app-network      # Use the same network as the app
+      - app-network
 
 networks:
   app-network:
-    driver: bridge        # Network to allow communication between containers
+    driver: bridge
